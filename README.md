@@ -20,5 +20,5 @@ The various datasets to be used along with the ** bikeshare.py ** file are:
 - washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
+A lot of appreciation to AAL and to Udacity for this opprotunity to carry out this project and gain the neccessary skills to build my career. 
