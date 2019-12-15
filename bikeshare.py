@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+monthly = ["january", "february", "march", "april", "may", "june", "all"]
 
 def get_filters():
     """
@@ -27,7 +28,7 @@ def get_filters():
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         month  = input(" Select the month: (january, february, march, april, may, june or all): ")
-        if month in ["january", "february", "march", "april", "may", "june", "all"]:
+        if month in monthly:
             break
         else:
              print("Sorry wrong input, try again\n")
