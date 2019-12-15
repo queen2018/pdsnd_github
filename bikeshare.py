@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+monthly = ["january", "february", "march", "april", "may", "june", "all"]
 
 def get_filters():
     """
@@ -27,7 +28,7 @@ def get_filters():
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         month  = input(" Select the month: (january, february, march, april, may, june or all): ")
-        if month in ["january", "february", "march", "april", "may", "june", "all"]:
+        if month in monthly:
             break
         else:
              print("Sorry wrong input, try again\n")
@@ -67,8 +68,7 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
+        month = monthly.index(month) + 1
 
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
@@ -82,7 +82,15 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """
+    Displays statistics on the most frequent month,
+    The most common month and 
+    most common hour of travel. 
+    argS:
+        df - Pandas DataFrame containing city data filtered by month and day
+    No return  value 
+
+    """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -152,12 +160,11 @@ def user_stats(df):
     # TO DO: Display counts of user types
     
     user_types = df['User Type'].value_counts()
-    print(user_types)
+    print("\nThe count of the user types is:\n {}" .format(user_types))
 
     # TO DO: Display counts of gender
     gender = df['Gender'].value_counts()
-    print("\n The count of various genders\n")
-    print(gender)
+    print("\nThe count of the various genders is:\n {}" .format(gender))
     # TO DO: Display earliest, most recent, and most common year of birth
     earliest = df['Birth Year'].min()
     most_recent = df['Birth Year'].max()
