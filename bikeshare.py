@@ -68,8 +68,7 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
+        month = monthly.index(month) + 1
 
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
@@ -83,7 +82,15 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """
+    Displays statistics on the most frequent month,
+    The most common month and 
+    most common hour of travel. 
+    argS:
+        df - Pandas DataFrame containing city data filtered by month and day
+    No return  value 
+
+    """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
